@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="com.lyan.studyrealm.activity.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_weight="1">
+        <EditText
+            android:id="@+id/name"
+            android:hint="请录入姓名"
+            style="@style/input"
+            android:inputType="text"/>
+        <EditText
+            android:id="@+id/age"
+            style="@style/input"
+            android:inputType="number"
+            android:hint="请录入年龄"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/insert"
+            android:text="增加"
+            style="@style/data_cmd" />
+        <Button
+            android:id="@+id/update"
+            android:text="更改"
+            style="@style/data_cmd" />
+        <Button
+            android:id="@+id/delete"
+            android:text="删除"
+            style="@style/data_cmd" />
+        <Button
+            android:id="@+id/select"
+            android:text="查询"
+            style="@style/data_cmd" />
+    </LinearLayout>
+
+
+</LinearLayout>

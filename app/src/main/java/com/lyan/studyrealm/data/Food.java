@@ -18,7 +18,6 @@ public class Food extends RealmObject{
     private String type;//类别
     @Required
     private String name;//名称
-    @Required
     private double price;//价钱
 
     public String getId() {

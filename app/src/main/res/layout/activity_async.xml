@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_async"
     android:layout_width="match_parent"
@@ -8,6 +8,33 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.lyan.studyrealm.activity.AsyncActivity">
-
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+        <Button
+            android:id="@+id/insert"
+            android:text="增加"
+            style="@style/data_cmd" />
+        <Button
+            android:id="@+id/update"
+            android:text="更改"
+            style="@style/data_cmd" />
+        <Button
+            android:id="@+id/delete"
+            android:text="删除"
+            style="@style/data_cmd" />
+        <Button
+            android:id="@+id/select"
+            android:text="查询"
+            style="@style/data_cmd" />
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/frag"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

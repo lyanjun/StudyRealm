@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#56ff0002"
+    android:gravity="center">
+    <EditText
+        android:id="@+id/food_type"
+        android:hint="请输入食物的类别"
+        style="@style/food_input" />
+    <EditText
+        android:id="@+id/food_name"
+        android:hint="请输入食物的名称"
+        style="@style/food_input" />
+
+    <EditText
+        android:id="@+id/food_price"
+        android:hint="请输入食物的价钱"
+        style="@style/food_input"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/make"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:textSize="20sp"/>
+</LinearLayout>

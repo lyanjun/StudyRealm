@@ -2,7 +2,6 @@ package com.lyan.studyrealm.data;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
-import io.realm.annotations.Required;
 
 /**
  * Author LYJ
@@ -12,22 +11,11 @@ import io.realm.annotations.Required;
  */
 
 public class Food extends RealmObject{
-    @PrimaryKey//主键
-    private String id;//ID
-    @Required//不能为空
+
     private String type;//类别
-    @Required
+    @PrimaryKey//不能为空
     private String name;//名称
     private double price;//价钱
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getType() {
         return type;
     }

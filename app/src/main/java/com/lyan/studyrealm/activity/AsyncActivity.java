@@ -93,6 +93,7 @@ public class AsyncActivity extends AppCompatActivity implements InsertFragment.I
                 break;
             case R.id.select://查
                 showFragment(3);
+                ((SelectFragment)fragments.get(3)).reset();
                 break;
         }
     }
@@ -149,6 +150,12 @@ public class AsyncActivity extends AppCompatActivity implements InsertFragment.I
                 Log.i("insertDataToRealm", "onSuccess: ");
                 Log.i("线程", Thread.currentThread().getName());
                 selectAllDataFromRealm();
+            }
+        }, new Realm.Transaction.OnError() {
+            @Override
+            public void onError(Throwable error) {
+                Log.d("线程", Thread.currentThread().getName());
+                Log.d("onError", error.getMessage());
             }
         });
     }

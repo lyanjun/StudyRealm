@@ -2,6 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2556ff">
-
+    android:background="#4ecbf9">
+    <ListView
+        android:id="@+id/listview"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:listSelector="@android:color/transparent"
+        android:divider="#f2b84a"
+        android:dividerHeight="1dp"
+        android:layout_weight="1"/>
 </LinearLayout>

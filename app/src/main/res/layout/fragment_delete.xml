@@ -9,11 +9,6 @@
         android:id="@+id/food_name"
         android:hint="请输入食物的名称"
         style="@style/food_input" />
-    <EditText
-        android:id="@+id/food_price"
-        android:hint="请输入食物的价钱"
-        style="@style/food_input"
-        android:inputType="number"/>
     <Button
         android:id="@+id/make"
         android:layout_width="match_parent"

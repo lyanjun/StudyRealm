@@ -172,7 +172,7 @@ public class AsyncActivity extends AppCompatActivity implements InsertFragment.I
             public void onChange(RealmResults<Food> element) {
                 Log.d("selectAllDataFromRealm", "查询到结果");
                 Log.i("线程", Thread.currentThread().getName());
-                List<Food> result = realm.copyFromRealm(element);
+                List<Food> result = realm.copyFromRealm(foods);
                 if (result.size() == 0){
                     Log.d("结果集", "没有数据");
                     return;
@@ -183,7 +183,9 @@ public class AsyncActivity extends AppCompatActivity implements InsertFragment.I
                     Log.w("名称", food.getName());
                     Log.w("价格", food.getPrice()+"");
                 }
-                foods.removeChangeListeners();
+                if (foods.isLoaded()){
+                    foods.removeChangeListeners();
+                }
             }
         });
     }

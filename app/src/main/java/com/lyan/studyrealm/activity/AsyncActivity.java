@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.lyan.studyrealm.R;
 import com.lyan.studyrealm.data.Food;
@@ -147,6 +148,7 @@ public class AsyncActivity extends AppCompatActivity implements InsertFragment.I
         }, new Realm.Transaction.OnSuccess() {//操作成功
             @Override
             public void onSuccess() {
+                Toast.makeText(AsyncActivity.this,"添加成功！",Toast.LENGTH_SHORT).show();
                 Log.i("insertDataToRealm", "onSuccess: ");
                 Log.i("线程", Thread.currentThread().getName());
                 selectAllDataFromRealm();
@@ -203,6 +205,7 @@ public class AsyncActivity extends AppCompatActivity implements InsertFragment.I
             @Override
             public void onSuccess() {
                 selectAllDataFromRealm();
+                Toast.makeText(AsyncActivity.this,"修改成功！",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -223,6 +226,7 @@ public class AsyncActivity extends AppCompatActivity implements InsertFragment.I
         }, new Realm.Transaction.OnSuccess() {
             @Override
             public void onSuccess() {
+                Toast.makeText(AsyncActivity.this,"删除成功！",Toast.LENGTH_SHORT).show();
                 selectAllDataFromRealm();
             }
         });

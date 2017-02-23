@@ -1,5 +1,6 @@
 package com.lyan.studyrealm.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,7 +16,6 @@ import com.lyan.studyrealm.data.Food;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 
 /**
@@ -29,7 +29,14 @@ public class SelectFragment extends Fragment {
     @BindView(R.id.listview)
     ListView listview;
     private Realm realm;
-    private Subscription subscription;
+
+    private Context context;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,12 +50,13 @@ public class SelectFragment extends Fragment {
      * 加载数据
      */
     private void add() {
-        subscription = realm.where(Food.class)
+       realm.where(Food.class)
                 .findAllAsync()
                 .asObservable()
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(foods -> listview.setAdapter(
-                        new TestAdapter(getContext(),foods)));
+                .subscribe(foods -> {
+                    listview.setAdapter(new TestAdapter(context,foods));
+                });
     }
 
     /**
@@ -59,7 +67,6 @@ public class SelectFragment extends Fragment {
     }
     @Override
     public void onDestroy() {
-        subscription.unsubscribe();
         realm.close();
         super.onDestroy();
     }

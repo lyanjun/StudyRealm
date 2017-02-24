@@ -37,8 +37,8 @@ public class TestAdapter extends RealmBaseAdapter<Food> implements ListAdapter {
             convertView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item, parent, false);
             viewHolder = new ViewHolder(convertView);
-            viewHolder.name = (TextView) convertView.findViewById(R.id.name);
-            viewHolder.price = (TextView) convertView.findViewById(R.id.price);
+            viewHolder.name = ButterKnife.findById(convertView,R.id.name);
+            viewHolder.price = ButterKnife.findById(convertView,R.id.price);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -54,7 +54,6 @@ public class TestAdapter extends RealmBaseAdapter<Food> implements ListAdapter {
         TextView name;
         @BindView(R.id.price)
         TextView price;
-
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
